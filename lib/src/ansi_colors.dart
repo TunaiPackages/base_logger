@@ -78,6 +78,9 @@ class AnsiColors {
     String? ansiBackgroundColor,
   }) {
     final bgColor = ansiBackgroundColor ?? '';
-    return '$bgColor$ansiForegroundColor$message${AnsiColors.reset}';
+    return message
+        .split('\n')
+        .map((line) => '$bgColor$ansiForegroundColor$line${AnsiColors.reset}')
+        .join('\n');
   }
 }
