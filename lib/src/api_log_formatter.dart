@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class ApiLogFormatter {
-  Map<String, dynamic> _getInfoJson() {
+  static Map<String, dynamic> _getInfoJson() {
     return {};
     // String version = 'v${VersionTracker().version}';
     // final deviceInfo = DeviceInfoHelper.deviceInfo;
@@ -18,7 +18,7 @@ class ApiLogFormatter {
     // };
   }
 
-  Map<String, dynamic> formatResponse({
+  static Map<String, dynamic> formatResponse({
     required int responseMs,
     required http.BaseRequest request,
     required http.StreamedResponse response,
@@ -33,7 +33,7 @@ class ApiLogFormatter {
     return logJson;
   }
 
-  Map<String, dynamic> formatSendFailed({
+  static Map<String, dynamic> formatSendFailed({
     required http.BaseRequest request,
     required dynamic message,
   }) {
@@ -47,7 +47,7 @@ class ApiLogFormatter {
     return logJson;
   }
 
-  Map<String, dynamic> formatError({
+  static Map<String, dynamic> formatError({
     required http.BaseRequest request,
     required http.StreamedResponse response,
     required String returnedBody,
@@ -65,7 +65,7 @@ class ApiLogFormatter {
     return logJson;
   }
 
-  Map<String, dynamic> formatTimeOut({
+  static Map<String, dynamic> formatTimeOut({
     required http.BaseRequest request,
     required Duration timeoutDuration,
   }) {
@@ -79,7 +79,7 @@ class ApiLogFormatter {
     return logJson;
   }
 
-  Map<String, dynamic> _getRequestJson(
+  static Map<String, dynamic> _getRequestJson(
     http.BaseRequest request,
   ) {
     try {
@@ -118,7 +118,7 @@ class ApiLogFormatter {
     }
   }
 
-  Map<String, dynamic> _getResponseJson(
+  static Map<String, dynamic> _getResponseJson(
     http.StreamedResponse response,
   ) {
     try {
